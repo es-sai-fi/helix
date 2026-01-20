@@ -8,6 +8,8 @@
   gitRev ? null,
   grammarOverlays ? [],
   includeGrammarIf ? _: true,
+  mold,
+  stdenv,
 }: let
   fs = lib.fileset;
 
@@ -53,7 +55,8 @@ in
     nativeBuildInputs = [
       installShellFiles
       git
-    ];
+      mold
+    ]; 
 
     buildType = "release";
 
@@ -62,6 +65,9 @@ in
       root = ./.;
       fileset = src;
     };
+
+    # Use mold as the linker if the platform is Linux.
+    RUSTFLAGS = lib.optionalString stdenv.isLinux "-C link-arg=-fuse-ld=mold";
 
     # Helix attempts to reach out to the network and get the grammars. Nix doesn't allow this.
     HELIX_DISABLE_AUTO_GRAMMAR_BUILD = "1";
