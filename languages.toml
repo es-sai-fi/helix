@@ -1,10 +1,68 @@
 # Language support configuration.
 # See the languages documentation: https://docs.helix-editor.com/master/languages.html
 
-use-grammars = { except = [ "wren", "gemini" ] }
+use-grammars = { only = [
+  "c",
+  "comment",
+  "cpp",
+
+  "css",
+
+  "diff",
+  "dockerfile",
+
+  "fish",
+
+  "git-config",
+  "git-rebase",
+
+  "go",
+  "go-format-string",
+  "gomod",
+  "gotmpl",
+  "gowork",
+
+  "html",
+
+  "ini",
+
+  "javascript",
+  "jsdoc",
+
+  "jjdescription",
+  "jjrevset",
+  "jjtemplate",
+
+  "json",
+  "jsonc",
+
+  "kdl",
+
+  "lua",
+  "lua-format-string",
+  "luap",
+
+  "markdown",
+
+  "nix",
+
+  "python",
+
+  "regex",
+
+  "rust",
+  "rust-format-args",
+
+  "toml",
+
+  "typescript",
+
+  "yaml",
+
+  "zig"
+] }
 
 [language-server]
-
 actions-language-server = {command = "actions-languageserver", args = ["--stdio"]}
 ada-gpr-language-server = {command = "ada_language_server", args = ["--language-gpr"]}
 ada-language-server = { command = "ada_language_server" }
