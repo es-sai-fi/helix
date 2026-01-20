@@ -38,6 +38,8 @@
   '';
 in
   rustPlatform.buildRustPackage (self: {
+    pname = "helix";
+
     cargoLock = {
       lockFile = ./Cargo.lock;
       # This is not allowed in nixpkgs but is very convenient here: it allows us to
