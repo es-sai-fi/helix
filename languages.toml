@@ -9,6 +9,7 @@ use-grammars = { only = [
   "css",
 
   "diff",
+  
   "dockerfile",
 
   "fish",
@@ -56,6 +57,8 @@ use-grammars = { only = [
   "toml",
 
   "typescript",
+
+  "typst",
 
   "yaml",
 
